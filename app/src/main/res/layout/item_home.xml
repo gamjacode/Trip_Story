@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100sp"
+    >
+        <TextView
+            android:id="@+id/item_home_name"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/nanumgothic"
+            android:gravity="center_vertical"
+            android:text="영월"
+            android:textStyle="bold"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.0376"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline" />
+
+        <TextView
+            android:id="@+id/item_home_time"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/nanumgothic"
+            android:lineSpacingExtra="3sp"
+            android:text="7/9-AM 10:00"
+            android:textColor="#454f63"
+            android:textStyle="normal"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.0253"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline2"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline2" />
+
+        <ImageView
+            android:id="@+id/item_home_imageview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.232"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toTopOf="@+id/top_guideline3"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.922" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.048" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.208" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.0185" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.0285" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

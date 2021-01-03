@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_menu_home"
+        android:title="@null"
+        android:icon="@drawable/ic_home"
+        android:checked="true"/>
+    <item
+        android:id="@+id/bottom_menu_todo"
+        android:title="@null"
+        android:icon="@drawable/ic_todo"/>
+    <item
+        android:id="@+id/bottom_menu_map"
+        android:title="@null"
+        android:icon="@drawable/ic_map" />
+    <item
+        android:id="@+id/bottom_menu_message"
+        android:title="@null"
+        android:icon="@drawable/ic_message"/>
+    <item
+        android:id="@+id/bottom_menu_setting"
+        android:title="@null"
+        android:icon="@drawable/ic_setting"/>
+</menu>
