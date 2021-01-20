@@ -1,4 +1,4 @@
-package com.example.trip_story
+    package com.example.trip_story
 
 import android.os.Bundle
 import android.view.LayoutInflater

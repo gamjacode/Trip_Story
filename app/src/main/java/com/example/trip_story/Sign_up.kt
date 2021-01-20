@@ -5,86 +5,90 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.sign_image
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class Sign_up : AppCompatActivity() {
+    var auth: FirebaseAuth? = null
+    lateinit var email: String
+    lateinit var pw1: String
+    lateinit var pw2: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        signup_button.isEnabled = false
-        signup_edit1.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {}
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val input_id = signup_edit1.text.toString()
-                val regex = Regex(pattern = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+\$")
-                val matched = regex.containsMatchIn(input_id)
+        auth = FirebaseAuth.getInstance()   //auth : 회원가입에 관련된 정보들을 쓸 수 있게해줌
+        signup_button.setOnClickListener() {
+            email = signup_edit1.text.toString()
+            pw1 = signup_edit2.text.toString()
+            pw2 = signup_edit3.text.toString()
 
-                if (matched == true) {
-                    signup_text1.setText("올바른 형식 입니다.")
-                    signup_text1.setTextColor(resources.getColor(R.color.colorBlack))
+            if (pw1.equals(pw2)) {  //equals
+                createEmail()
+            } else if (email.isEmpty() || pw1.isEmpty()) {
+                Toast.makeText(this, "이메일 또는 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
 
-                    signup_edit2.addTextChangedListener(object : TextWatcher {
-                        override fun afterTextChanged(s: Editable?) {}
-                        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-                        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                            val input_pw = signup_edit2.text.toString()
-                            val regex = Regex(pattern = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!%*#?&]).{8,15}.$")
-                            val matched = regex.containsMatchIn(input_pw)
-
-                            if (matched == true) {
-                                signup_text2.setText("올바른 형식 입니다.")
-                                signup_text2.setTextColor(resources.getColor(R.color.colorBlack))
-
-                                signup_edit3.addTextChangedListener(object : TextWatcher {
-                                    override fun afterTextChanged(s: Editable?) {}
-                                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-                                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int,count: Int) {
-                                        val input_pw1 = signup_edit2.text.toString()
-                                        val input_pw2 = signup_edit3.text.toString()
-                                        if(input_pw2.equals(input_pw1)){
-                                            signup_text3.setText("비밀번호가 일치합니다.")
-                                            signup_text3.setTextColor(resources.getColor(R.color.colorBlack))
-                                            signup_button.isEnabled = true
-                                        }
-                                        else{
-                                            signup_text3.setText("비밀번호가 일치하지 않습니다.")
-                                            signup_text3.setTextColor(resources.getColor(R.color.colorincorrect))
-                                        }
-                                        if (input_pw2.equals("") || input_pw2 == null) {
-                                            signup_text3.setText("")
-                                        }
-                                    }
-
-                                })
-                            } else {
-                                signup_text2.setText("올바른 비밀번호를 입력하세요.")
-                                signup_text2.setTextColor(resources.getColor(R.color.colorincorrect))
-                            }
-                            if (input_pw.equals("") || input_pw == null) {
-                                signup_text2.setText("")
-                            }
-                        }
-
-                    })
-                } else {
-                    signup_text1.setText("올바르지 않습니다.")
-                    signup_text1.setTextColor(resources.getColor(R.color.colorincorrect))
-                }
-                if (input_id.equals("") || input_id == null) {
-                    signup_text1.setText("")
+    private fun createEmail() {
+        auth?.createUserWithEmailAndPassword(
+            signup_edit1.text.toString(),
+            signup_edit2.text.toString()
+        )
+            ?.addOnCompleteListener {
+                if (it.isSuccessful) {
+                    val intent = Intent(this, Login::class.java)
+                    startActivity(intent)
+                } else if (it.exception.toString().isNotEmpty()) {
+                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
-        })
+            ?.addOnFailureListener {
+                Toast.makeText(this,"통신 불량",Toast.LENGTH_SHORT).show()
+                // 통신 불량에 대한 예외처리
+            }
+    }
+}
 
-        signup_button.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+
+
+
+        /*
+        signup_button.setOnClickListener{
+          Signup()
         }
-        sign_image.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+    }
+
+    fun Signup() {//회원가입 코드를 넣어줌
+        auth?.createUserWithEmailAndPassword(   //createUserWithEmailAndPassword : 회원가입을 시켜줌
+            signup_edit1.text.toString(),
+            signup_edit2.text.toString()
+        )
+            ?.addOnCompleteListener { task -> //task?..
+                if (task.isSuccessful) {    //회원가입이 에러없이 되었다.
+                    moveMainPage(task.result?.user)
+                } else if (!task.exception?.message.isNullOrEmpty()) { //NullOrEmpty가 아니라면 이기때문에 !를 앞에 붙임
+                    //show the error message
+                    Toast.makeText(this, task.exception?.message, Toast.LENGTH_LONG).show()
+                }
+            }
+    }
+
+    fun moveMainPage(user: FirebaseUser?) {    //회원가입이 성공할 시 다음페이지로 넘어가는 메소드
+        if (user != null) {
+            startActivity(Intent(this, Login::class.java))
+            finish()
         }
     }
 }
+
+         */

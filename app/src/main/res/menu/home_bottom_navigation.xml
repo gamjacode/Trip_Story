@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_home"
         android:checked="true"/>
     <item
-        android:id="@+id/bottom_menu_todo"
+        android:id="@+id/bottom_menu_user"
         android:title="@null"
         android:icon="@drawable/ic_todo"/>
     <item
@@ -14,11 +14,17 @@
         android:title="@null"
         android:icon="@drawable/ic_map" />
     <item
+        android:id="@+id/bottom_menu_photo"
+        android:title="@null"
+        android:icon="@drawable/ic_photo" />
+    <item
         android:id="@+id/bottom_menu_message"
         android:title="@null"
         android:icon="@drawable/ic_message"/>
+    <!--
     <item
         android:id="@+id/bottom_menu_setting"
         android:title="@null"
         android:icon="@drawable/ic_setting"/>
+        -->
 </menu>

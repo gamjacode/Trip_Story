@@ -23,4 +23,7 @@
     <color name="colorincorrect">#f90909</color>
     <color name="colorBlue01">#6C9BD9</color>
     <color name="colorBlack01">#0D0D0D</color>
+    <color name="colorDivision">#e0e0e0</color>
+    <color name="colorLightGray">#f1f1f1</color>
+    <color name="colorNavIcon">#1d1d1d</color>
 </resources>
