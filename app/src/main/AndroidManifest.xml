@@ -12,22 +12,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".model.Multiaction"></activity>
-        <activity android:name=".Detail_Plan" >
+        <activity android:name=".StoragTest">
 
         </activity>
+        <activity android:name=".model.Multiaction" />
+        <activity android:name=".Detail_Plan"></activity>
         <activity android:name=".AddPhotoActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Sign_up" />
         <activity android:name=".FindPw" />
         <activity android:name=".Login" />
+
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

@@ -28,13 +28,17 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         myContext = requireContext()
-//        detailviewitem_detail_plan.setOnClickListener{
-//            val intent = Intent(myContext,Detail_Plan::class.java)
-//            startActivity(intent)
-//        }
+
+        view?.detailviewitem_detail_plan?.setOnClickListener{
+            val intent = Intent(myContext,Detail_Plan::class.java)
+            startActivity(intent)
+        }
 
         var view = LayoutInflater.from(activity).inflate(R.layout.fragment_home, container, false)
         firestore = FirebaseFirestore.getInstance() //초기화
+
+
+
 
         view.home_recycler_view.adapter = DetailViewRecyclerViewAdapter()
         view.home_recycler_view.layoutManager = LinearLayoutManager(activity)
@@ -44,7 +48,6 @@ class HomeFragment : Fragment() {
     inner class DetailViewRecyclerViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         var contentDTOs: ArrayList<ContentDTO> = arrayListOf() //contentDTO를 담기 위해
         var contentUidList: ArrayList<String> = arrayListOf()  //uid를 담기 위해
-
         init {
             //db에 접근을 하여 data를 받아올 수 있는 쿼리를 만듬
             firestore?.collection("images")?.orderBy("timestamp")
