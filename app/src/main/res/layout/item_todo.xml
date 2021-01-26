@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/item_todo_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumgothic"
+        android:textStyle="bold"
+        android:layout_marginLeft="30sp"
+        android:textSize="20sp"
+        android:textColor="#454f63"
+        android:lineSpacingExtra="0sp"
+        android:layout_marginTop="7dp"
+        android:text="영월역"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/item_todo_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumgothic"
+        android:textStyle="normal"
+        android:textColor="#454f63"
+        android:lineSpacingExtra="2.7sp"
+        android:text="7/9 - AM 9:00"
+        android:layout_marginLeft="5sp"
+        app:layout_constraintBottom_toBottomOf="@id/item_todo_name"
+        app:layout_constraintLeft_toRightOf="@id/item_todo_name"
+        app:layout_constraintTop_toTopOf="@id/item_todo_name"
+        />
+
+    <ImageView
+        android:id="@+id/item_todo_image"
+        android:layout_width="320dp"
+        android:layout_height="90dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/namysum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "355429057403",
+    "project_id": "tripstory-fe31e",
+    "storage_bucket": "tripstory-fe31e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355429057403:android:4f3651f3702cf01a1ff3de",
+        "android_client_info": {
+          "package_name": "com.example.trip_story"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355429057403-bjbea27nblm6tf8rphvj9v4t4ctbbp2h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1cMHkVdgntNX3hyFGh5hDyE-lF1uksgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355429057403-bjbea27nblm6tf8rphvj9v4t4ctbbp2h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355429057403:android:aff2992188b8b1911ff3de",
+        "android_client_info": {
+          "package_name": "com.example.viewpagerstudy2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355429057403-bjbea27nblm6tf8rphvj9v4t4ctbbp2h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1cMHkVdgntNX3hyFGh5hDyE-lF1uksgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355429057403-bjbea27nblm6tf8rphvj9v4t4ctbbp2h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

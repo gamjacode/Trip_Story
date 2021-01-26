@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/toolbar_division"
+        android:background="@color/colorDivision"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:orientation="horizontal" />
+    <ImageView
+        android:id="@+id/addphoto_image"
+        android:layout_margin="8sp"
+        android:layout_below="@id/toolbar_division"
+        android:layout_width="100sp"
+        android:layout_height="100sp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_division"
+        android:layout_toRightOf="@+id/addphoto_image">
+        <EditText
+            android:gravity="top"
+            android:id="@+id/addphoto_edit_explain"
+            android:layout_width="match_parent"
+            android:layout_height="100sp"
+            android:hint="Input Description"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/addphoto_btn_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/addphoto_image"
+        android:layout_below="@id/editText"
+        android:text="Add Photo"
+        />
+    <EditText
+        android:id="@+id/addphoto_edit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addphoto_btn_upload"
+        android:hint="Input_name"/>
+    <Button
+        android:id="@+id/choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addphoto_edit_name"
+        android:text="일정사진 등록"/>
+
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일정 사진 업로드"
+        android:layout_below="@+id/choose"/>
+
+    <TextView
+        android:id="@+id/alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/upload"
+        />
+
+</RelativeLayout>
